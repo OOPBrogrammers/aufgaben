@@ -13,7 +13,7 @@ Zuerst geht ihr hier drauf und drückt `New Branch from 'main'...`
 
 ![img.png](img.png)
 
-Als Namen gebt ihr `solve/Blatt%BLATT_NR%A%AUFGABE_NR%` an (bsp Klartext: `solve/Blatt1A1`).
+Als Namen gebt ihr `solve/Blatt%BLATT_NR%A%AUFGABE_NR%%NAME%` an (bsp Klartext: `solve/Blatt1A1David`).
 
 Für die Aufgabe erstellt ihr in der Solution ein Projekt mit dem Namen `Blatt%BLATT_NR%A%AUFGABE_NR%`.
 Die Templates ersetzt ihr natürlich selbst mit den Richtigen Werten (bsp Klartextname: `Blatt1A1`).
