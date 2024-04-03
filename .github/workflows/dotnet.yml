@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -20,6 +20,13 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Install .NET Framework Developer Pack
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wine
+        wget -q https://download.visualstudio.microsoft.com/download/pr/2b85b4ff-ba9c-4a72-b6e1-8046bb0b019c/4b1a7f11a040a6746e0e586cabbf80fd/ndp48-x86-x64-allos-enu.exe
+        chmod +x ndp48-x86-x64-allos-enu.exe
+        wine ./ndp48-x86-x64-allos-enu.exe /q /norestart
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
