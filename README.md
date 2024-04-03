@@ -24,6 +24,8 @@ Nun könnt ihr euer Projekt programmieren. Wenn ihr fertig seid müsst ihr die A
 Wenn ihr mit der Aufgabe fertig seid/einen Zwischenstand anderen zur Verfügung stellen wollt müsst ihr sie nur hochladen.
 
 ![img_1.png](img_1.png)
+
+
 Ihr drückt auf die Checkbox bei Changes, wählt alles aus, gebt unten im Feld eine Commit Message ein, welche beschreibt, was ihr gemacht habt,
 drückt auf `Commit and Push` und folgt den Anweisungen. Meinstens kommen Warnings, die könnt ihr einfach ignorieren.
 
