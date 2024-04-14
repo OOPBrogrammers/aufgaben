@@ -21,6 +21,14 @@ public class Program
 
     public static void Main(string[] args)
     {
-        
+        Console.Write("Basis eingeben: ");
+        int basis = Convert.ToInt32(Console.ReadLine() ?? "");
+        Console.Write("Exponent eingeben: ");
+        int exponent = Convert.ToInt32(Console.ReadLine() ?? "");
+        for (int i = 0; i <= exponent; i++)
+        {
+            Console.WriteLine($"{basis}^{i}: {Potenz(basis, i)}");
+        }
+        Console.WriteLine($"{basis}^{exponent} Rekursiv: {PotenzRek(basis, exponent)}");
     }
 }
