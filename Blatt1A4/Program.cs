@@ -13,11 +13,11 @@ class Account
     static double überziehungslimit = -1000;
 
     // Konstruktor
-    public Account(string kontoinhaber, double guthaben, int idkonto)
+    public Account(string kontoinhaber, double guthaben, int id)
     {
         this.kontoinhaber = kontoinhaber;
         this.guthaben = guthaben;
-        this.id = idkonto;
+        this.id = id;
     }
 
     public void Withdraw(double betrag)
