@@ -1,6 +1,6 @@
-using NUnit.Framework;
+using Blatt1A8;
 
-namespace Blatt1A8;
+namespace Blatt1A8Tests;
 
 public class Tests
 {
