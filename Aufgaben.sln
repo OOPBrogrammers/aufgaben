@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt1A31", "Blatt1A31\Blatt1A31.csproj", "{47739399-4E08-4804-8F43-9AE8B31D808B}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt1A23", "Blatt1A23\Blatt1A23.csproj", "{6DFE23F6-F315-4219-BB07-48C34E00557F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt1A23Tests", "Blatt1A23Tests\Blatt1A23Tests.csproj", "{07674DCA-AC26-43FD-A1C1-E63324199235}"
@@ -18,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47739399-4E08-4804-8F43-9AE8B31D808B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47739399-4E08-4804-8F43-9AE8B31D808B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47739399-4E08-4804-8F43-9AE8B31D808B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47739399-4E08-4804-8F43-9AE8B31D808B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DFE23F6-F315-4219-BB07-48C34E00557F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DFE23F6-F315-4219-BB07-48C34E00557F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DFE23F6-F315-4219-BB07-48C34E00557F}.Release|Any CPU.ActiveCfg = Release|Any CPU
