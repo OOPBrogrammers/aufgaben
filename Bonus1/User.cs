@@ -1,11 +1,9 @@
 ﻿public class User
 {
-  
-  //TODO: Instanzvariablen bzw. Properties hinzufuegen
+    
   public List<Playlist> Playlists { get; }
   public String Username { get; }
   private String Password { get; set; }
-  //TODO: Zusaetzliche Methoden hinzufügen und implementieren
 
   private User(string username, string password)
   { 
@@ -38,6 +36,11 @@
       var playlist = new Playlist(name);
       Playlists.Add(playlist);
       return playlist;
+  }
+
+  public Playlist? GetPlaylist(string name)
+  {
+      return Playlists.Find(playlist => playlist.Name == name);
   }
 
   /**

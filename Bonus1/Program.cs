@@ -6,8 +6,7 @@
     {
         AllSongs = new List<Song>();
         users = new List<User>();
-
-        //TODO: Fuellen Sie die Liste AllSongs mit Liedern aus der Datei songs.csv
+        
         foreach (var song in LoadSongs("../../../songs.csv"))
         {
             AllSongs.Add(song);
@@ -36,16 +35,12 @@
 
             currentLine++;
         }
+        reader.Close();
 
         return songs;
     }
 
     public List<Song> AllSongs { get; }
-
-    private void addUser(User user)
-    {
-        users.Add(user);
-    }
 
     public User GetUser(string username, string password)
     {
@@ -79,7 +74,7 @@
         User user = User.CreateUser("test", "test");
         Playlist play = user.AddPlaylistToUser("Party");
         play.AddSong(new Song(0, "The Red", "Chevelle", "Wonder What's Next", 239));
-        program.addUser(user);
+        program.users.Add(user);
         UI ui = new UI(program);
         ui.Run();
     }

@@ -32,7 +32,10 @@ public class UI
       Console.WriteLine("(2) Alle Lieder anzeigen");
       Console.WriteLine("(3) Alle Playlisten anzeigen");
       Console.WriteLine("(4) Neue Playlist erstellen");
-      Console.WriteLine("(5) Anwendung beenden");
+      Console.WriteLine("(5) Playlist speichern");
+      Console.WriteLine("(6) Playlist alphabetisch sortieren");
+      Console.WriteLine("(7) Alle Songs von einem Künstler in einer Playlist ausgeben");
+      Console.WriteLine("(8) Anwendung beenden");
       int choice = -1;
       while (choice == -1)
       {
@@ -49,9 +52,59 @@ public class UI
         case 2: listAllSongs(program.AllSongs); break;
         case 3: showPlaylists(user); break;
         case 4: createNewPlaylist(user); break;
-        case 5: return;
+        case 5: SavePlaylist(user); break;
+        case 6: SortPlaylist(user); break;
+        case 7: FilterPlaylistByArtist(user); break;
+        case 8: return;
       }
     }
+  }
+
+  private void SortPlaylist(User user)
+  {
+    Console.Write("Gib die zu sortierende Playlist ein:");
+    string playlistName = Console.ReadLine() ?? "";
+    var playlist = user.GetPlaylist(playlistName);
+    if (playlist == null)
+    {
+      Console.WriteLine("Diese Playlist existiert nicht.");
+      return;
+    }
+    
+    playlist.SortPlaylistByTitle();
+    Console.WriteLine("Die Playlist wurde sortiert.");
+  }
+
+  private void FilterPlaylistByArtist(User user)
+  {
+    Console.Write("Gib die Playlist ein, dessen Lieder angezeigt werden sollen:");
+    string playlistName = Console.ReadLine() ?? "";
+    var playlist = user.GetPlaylist(playlistName);
+    if (playlist == null)
+    {
+      Console.WriteLine("Diese Playlist existiert nicht.");
+      return;
+    }
+  
+    Console.Write("Gib den Künstler ein, dessen Lieder angezeigt werden sollen:");
+    var artist = Console.ReadLine() ?? "";
+    var songs = playlist.FilterPlaylistByArtist(artist);
+    listAllSongs(songs);
+    
+  }
+  private void SavePlaylist(User user)
+  {
+    Console.Write("Gib die zu speichernde Playlist ein:");
+    string playlistName = Console.ReadLine() ?? "";
+    var playlist = user.GetPlaylist(playlistName);
+    if (playlist == null)
+    {
+      Console.WriteLine("Diese Playlist existiert nicht.");
+      return;
+    }
+    
+    playlist.SavePlaylistToCSVFile($"../../../{playlist.Name}.csv");
+    Console.WriteLine("Die Playlist wurde gespeichert.");
   }
 
   private void changePassword(User user)

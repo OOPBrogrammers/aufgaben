@@ -1,8 +1,5 @@
 ﻿public class Playlist
 {
-
-  //TODO: Instanzvariablen bzw. Properties hinzufuegen
-  //TODO: Weitere Methoden hinzufuegen und implementieren
   public String Name { get; }
   public List<Song> Songs { get; private set; }
   public Playlist(string name)
@@ -14,7 +11,6 @@
   public int TotalDuration
   {
     // Berechnet die Gesamtspielzeit der Playlist aus den Einzelspielzeiten der enthaltenen Lieder
-    // TODO: Implementieren
     get
     {
       var totalDuration = 0;
@@ -59,6 +55,12 @@
    */
   public void SavePlaylistToCSVFile(string path)
   {
-    //TODO: Methode implementieren
+    var writer = new StreamWriter(path);
+    writer.WriteLine("ID,TITEL,KUENSTLER,ALBUM,DAUER");
+    foreach (var song in Songs)
+    {
+      writer.WriteLine($"{song.Id},{song.Title},{song.Artist},{song.Album},{song.Duration}");
+    }
+    writer.Close();
   }
 }
