@@ -3,16 +3,33 @@
 
   //TODO: Instanzvariablen bzw. Properties hinzufuegen
   //TODO: Weitere Methoden hinzufuegen und implementieren
-
+  public String Name { get; }
+  public List<Song> Songs { get; private set; }
   public Playlist(string name)
   {
-    //TODO: Konstruktor implementieren
+    Name = name;
+    Songs = [];
   }
 
   public int TotalDuration
   {
     // Berechnet die Gesamtspielzeit der Playlist aus den Einzelspielzeiten der enthaltenen Lieder
     // TODO: Implementieren
+    get
+    {
+      var totalDuration = 0;
+      foreach(var song in Songs)
+      {
+        totalDuration += song.Duration;
+      }
+
+      return totalDuration;
+    }
+  }
+
+  public void AddSong(Song song)
+  {
+    Songs.Add(song);
   }
 
 
@@ -22,7 +39,7 @@
    */
   public void SortPlaylistByTitle()
   {
-    //TODO: Methode implementieren
+    Songs = Songs.OrderBy(song => song.Title).ToList();
   }
 
   /**
@@ -32,7 +49,7 @@
    */
   public List<Song> FilterPlaylistByArtist(string artist)
   {
-    //TODO: Methode implementieren
+    return Songs.Where(song => song.Artist == artist).ToList();
   }
 
   /**

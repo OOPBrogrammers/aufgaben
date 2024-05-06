@@ -2,11 +2,16 @@
 {
   
   //TODO: Instanzvariablen bzw. Properties hinzufuegen
+  public List<Playlist> Playlists { get; }
+  public String Username { get; }
+  private String Password { get; set; }
   //TODO: Zusaetzliche Methoden hinzufügen und implementieren
 
   private User(string username, string password)
-  {
-    //TODO: Konstruktur implementieren
+  { 
+      Playlists = []; 
+      Username = username;
+      Password = password;
   }
 
 
@@ -17,7 +22,12 @@
    */
   public static User CreateUser(string username, string password)
   {
-    //TODO: Methode implementieren
+      foreach (var symbol in username)
+      {
+          if ((symbol < 'a' || symbol > 'z') && (symbol < 'A' || symbol > 'Z')) return null;
+      }
+
+      return new User(username, password);
   }
 
   /**
@@ -25,7 +35,9 @@
    */
   public Playlist AddPlaylistToUser(string name)
   {
-    //TODO: Methode implementieren
+      var playlist = new Playlist(name);
+      Playlists.Add(playlist);
+      return playlist;
   }
 
   /**
@@ -37,7 +49,9 @@
    */
   public bool ChangePassword(string oldPassword, string newPassword)
   {
-    //TODO: Methode implementieren
+      if (Password != oldPassword) return false;
+      Password = newPassword;
+      return true;
   }
 
   /**
@@ -45,6 +59,6 @@
    */
   public bool CheckPassword(string password)
   {
-    //TODO: Methode implementieren
+      return Password == password;
   }
 }
