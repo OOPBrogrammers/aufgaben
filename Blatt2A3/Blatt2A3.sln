@@ -1,0 +1,70 @@
+﻿using System;
+
+public class Vector
+{
+    private readonly float x;
+    private readonly float y;
+
+    public Vector(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public static Vector operator +(Vector v1, Vector v2)
+    {
+        return new Vector(v1.x + v2.x, v1.y + v2.y);
+    }
+
+    public static Vector operator *(float scalar, Vector v)
+    {
+        return new Vector(scalar * v.x, scalar * v.y);
+    }
+
+    public static Vector operator *(Vector v, float scalar)
+    {
+        return scalar * v;
+    }
+
+    public static Vector operator ++(Vector v)
+    {
+        return v + v;
+    }
+
+    public static Vector operator -(Vector v)
+    {
+        return new Vector(-v.x, -v.y);
+    }
+
+    public static bool operator ==(Vector v1, Vector v2)
+    {
+        return v1.x == v2.x && v1.y == v2.y;
+    }
+
+    public static bool operator !=(Vector v1, Vector v2)
+    {
+        return !(v1 == v2);
+    }
+
+    public override string ToString()
+    {
+        return $"({x}/{y})";
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Vector v1 = new Vector(1, 1);
+        Vector v2 = new Vector(1, 1);
+
+        Console.WriteLine(1.0f * v1); // Ändern Sie float v1 in Vector v1
+        Console.WriteLine(-(v1 + v1 * 5.0f + ++v1));
+        Console.WriteLine(new Vector(1, 1) + ++v2 * 10 + v2++);
+        Console.WriteLine(v2);
+        Console.WriteLine(v1);
+        Console.WriteLine(v1 == v2 ? "ja" : "nein");
+        Console.WriteLine(new Vector(1, 1) != new Vector(1, 1) ? "ja" : "nein");
+    }
+}
