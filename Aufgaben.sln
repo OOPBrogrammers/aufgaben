@@ -1,5 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt2A3", "Blatt2A3\Blatt2A3.csproj", "{D78613C8-A722-4F26-BDAC-4E9DC49049F1}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt2A2", "Blatt2A2\Blatt2A2.csproj", "{333F6204-B6C6-42C5-B7A4-215B3FF8FD73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt2A2Test", "Blatt2A2Test\Blatt2A2Test.csproj", "{A675045F-15BB-482D-B8AD-7589799817D7}"
@@ -30,6 +32,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D78613C8-A722-4F26-BDAC-4E9DC49049F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78613C8-A722-4F26-BDAC-4E9DC49049F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78613C8-A722-4F26-BDAC-4E9DC49049F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78613C8-A722-4F26-BDAC-4E9DC49049F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{333F6204-B6C6-42C5-B7A4-215B3FF8FD73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{333F6204-B6C6-42C5-B7A4-215B3FF8FD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{333F6204-B6C6-42C5-B7A4-215B3FF8FD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
