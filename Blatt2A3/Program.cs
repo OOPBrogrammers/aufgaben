@@ -19,6 +19,13 @@ class Vector
     {
         return new Vector(v.x * scalar, v.y * scalar);
     }
+    
+    public static explicit operator float(Vector v)
+    {
+        //Was soll denn returned werden?
+        return v.x * v.y;
+    }
+    
     public static Vector operator *(Vector v, float scalar)
     {
         return scalar * v;
@@ -57,7 +64,7 @@ class Program
         Vector v1 = new Vector(1, 1);
         Vector v2 = new Vector(1, 1);
 
-        Console.WriteLine(1.0f * v1);
+        Console.WriteLine(1.0f * (float) v1);
         Console.WriteLine(-(v1 + v1 * 5.0f + ++v1));
         Console.WriteLine(new Vector(1, 1) + ++v2 * 10 + v2++);
         Console.WriteLine(v2);
