@@ -1,12 +1,8 @@
-﻿using System.Security.Cryptography;
-using System.Transactions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Aufgabe_1
+﻿namespace Blatt3A1
 {
     class Person 
     {
-        string Name { get; set; }
+        string Name { get; }
         public Person(string name) 
         {
             Name = name;
@@ -19,11 +15,12 @@ namespace Aufgabe_1
     }
     class Kette 
     {
-        Element head;
+        
+        Element? _head;
         public class Element
         {
             public Person Daten { get; set; }
-            public Element Successor { get; set; }
+            public Element? Successor { get; set; }
 
             public Element(Person daten)
             {
@@ -38,12 +35,20 @@ namespace Aufgabe_1
         public void Add(Person person) 
         {
             Element newElement = new Element(person);
-            newElement.Successor = head;
-            head = newElement;
+            Element? current = _head;
+            while (current != null && current.Successor != null) 
+            {
+                current = current.Successor;
+            }
+
+            if (current != null)
+                current.Successor = newElement;
+            else
+                _head = newElement;
         }
         public void AusgabeListe()
         {
-            Element current = head;
+            Element? current = _head;
             while (current != null) 
             {
                 Console.WriteLine(current);
