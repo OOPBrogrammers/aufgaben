@@ -1,15 +1,14 @@
-﻿using System;
-
+﻿namespace Blatt3A4;
 class Personenliste
 {
-    Person head;
-    Person tail;
+    Person? _head;
+    Person? _tail;
 
     public class Person
     {
-        public Person Successor { get; set; }
-        public Person Predecessor { get; set; }
-        public string Name { get; set; }
+        public Person? Successor { get; set; }
+        public Person? Predecessor { get; set; }
+        public string Name { get; }
 
         public Person(string name)
         {
@@ -27,48 +26,48 @@ class Personenliste
     public void AddEnd(string value)
     {
         Person newPerson = new Person(value);
-        if (tail == null)
+        if (_tail == null)
         {
-            head = newPerson;
-            tail = newPerson;
+            _head = newPerson;
+            _tail = newPerson;
         }
         else
         {
-            newPerson.Predecessor = tail;
-            tail.Successor = newPerson;
-            tail = newPerson;
+            newPerson.Predecessor = _tail;
+            _tail.Successor = newPerson;
+            _tail = newPerson;
         }
     }
 
     public void AddFront(string value)
     {
         Person newPerson = new Person(value);
-        if (head == null)
+        if (_head == null)
         {
-            head = newPerson;
-            tail = newPerson;
+            _head = newPerson;
+            _tail = newPerson;
         }
         else
         {
-            newPerson.Successor = head;
-            head.Predecessor = newPerson;
-            head = newPerson;
+            newPerson.Successor = _head;
+            _head.Predecessor = newPerson;
+            _head = newPerson;
         }
     }
 
     public void AddSorted(string value)
     {
-        if (head == null || IsGreaterThan(value, tail.Name))
+        if (_head == null || IsGreaterThan(value, _tail!.Name))
         {
             AddEnd(value);
         }
-        else if (IsLessThan(value, head.Name))
+        else if (IsLessThan(value, _head.Name))
         {
             AddFront(value);
         }
         else
         {
-            Person current = head;
+            Person current = _head;
             while (current.Successor != null && IsLessThan(current.Successor.Name, value))
             {
                 current = current.Successor;
@@ -84,64 +83,64 @@ class Personenliste
             }
             else
             {
-                tail = newPerson;
+                _tail = newPerson;
             }
         }
     }
 
     public void DeleteFirst()
     {
-        if (head == null)
+        if (_head == null)
         {
             Console.WriteLine("Liste ist leer");
         }
-        else if (head == tail)
+        else if (_head == _tail)
         {
-            head = null;
-            tail = null;
+            _head = null;
+            _tail = null;
         }
         else
         {
-            head = head.Successor;
-            head.Predecessor = null;
+            _head = _head.Successor;
+            _head!.Predecessor = null;
         }
     }
 
     public void DeleteLast()
     {
-        if (tail == null)
+        if (_tail == null)
         {
             Console.WriteLine("Liste ist leer");
         }
-        else if (head == tail)
+        else if (_head == _tail)
         {
-            head = null;
-            tail = null;
+            _head = null;
+            _tail = null;
         }
         else
         {
-            tail = tail.Predecessor;
-            tail.Successor = null;
+            _tail = _tail.Predecessor;
+            _tail!.Successor = null;
         }
     }
 
     public void DeleteByName(string value)
     {
-        if (head == null)
+        if (_head == null)
         {
             Console.WriteLine("Die Liste ist leer");
         }
-        else if (head.Name == value)
+        else if (_head.Name == value)
         {
             DeleteFirst();
         }
-        else if (tail.Name == value)
+        else if (_tail != null && _tail.Name == value)
         {
             DeleteLast();
         }
         else
         {
-            Person current = head;
+            Person? current = _head;
             while (current != null && current.Name != value)
             {
                 current = current.Successor;
@@ -149,7 +148,10 @@ class Personenliste
 
             if (current != null)
             {
-                current.Predecessor.Successor = current.Successor;
+                if (current.Predecessor != null)
+                {
+                    current.Predecessor.Successor = current.Successor;
+                }
                 if (current.Successor != null)
                 {
                     current.Successor.Predecessor = current.Predecessor;
@@ -164,7 +166,7 @@ class Personenliste
 
     public void Print()
     {
-        Person current = head;
+        Person? current = _head;
         while (current != null)
         {
             Console.WriteLine(current.Name);
@@ -174,7 +176,7 @@ class Personenliste
 
     public void PrintReverse()
     {
-        Person current = tail;
+        Person? current = _tail;
         while (current != null)
         {
             Console.WriteLine(current.Name);
@@ -184,7 +186,7 @@ class Personenliste
 
     public void PrintAll()
     {
-        Person current = head;
+        Person? current = _head;
         while (current != null)
         {
             Console.WriteLine(current);
@@ -201,7 +203,7 @@ class Personenliste
             {
                 return true;
             }
-            else if (a[i] > b[i])
+            if (a[i] > b[i])
             {
                 return false;
             }
