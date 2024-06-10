@@ -1,5 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt4A3", "Blatt4A3\Blatt4A3.csproj", "{61071563-2335-4463-BB80-E508A147B7F3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt4A4", "Blatt4A4\Blatt4A4.csproj", "{83B42E9A-8895-406B-9BB4-BCF5B444E902}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blatt3A2", "Blatt3A2\Blatt3A2.csproj", "{8B3FA29C-3238-496A-B42C-5293F44CDF59}"
@@ -44,6 +46,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61071563-2335-4463-BB80-E508A147B7F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61071563-2335-4463-BB80-E508A147B7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61071563-2335-4463-BB80-E508A147B7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61071563-2335-4463-BB80-E508A147B7F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83B42E9A-8895-406B-9BB4-BCF5B444E902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83B42E9A-8895-406B-9BB4-BCF5B444E902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83B42E9A-8895-406B-9BB4-BCF5B444E902}.Release|Any CPU.ActiveCfg = Release|Any CPU
