@@ -1,6 +1,6 @@
 ﻿class Program
 {
-    public class FahrerBetrunkenException : Exception
+    public class FahrerBetrunkenException : FahrsimulatorException
     {
         public FahrerBetrunkenException() : base("Der Fahrer ist betrunken.") { }
 
@@ -9,7 +9,7 @@
         public FahrerBetrunkenException(string message, Exception inner) : base(message, inner) { }
     }
     
-    public class FahrzeugLiegengebliebenException : Exception
+    public class FahrzeugLiegengebliebenException : FahrsimulatorException
     {
         public FahrzeugLiegengebliebenException() : base("Das Fahrzeug ist liegengeblieben.") { }
 
@@ -33,6 +33,9 @@
 
     public class Fahrzeug
     {
+        
+        public bool HatSprit { get; set; }
+        
         public void Einsteigen(Fahrer kunde)
         {
             if (kundeIstBetrunken(kunde))
@@ -43,6 +46,10 @@
 
         public void FahreNach(string ziel)
         {
+            if (!HatSprit)
+            {
+                throw new FahrzeugLiegengebliebenException();
+            }
             Console.WriteLine($"Fahre nach {ziel}.");
         }
 
@@ -75,7 +82,7 @@
     static void Main()
     {
         Fahrer kunde = new Fahrer { IstBetrunken = true };
-        Fahrzeug leihfahrzeug = new Fahrzeug();
+        Fahrzeug leihfahrzeug = new Fahrzeug { HatSprit = true };
 
         try
         {
