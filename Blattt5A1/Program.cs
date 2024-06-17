@@ -1,6 +1,6 @@
 ﻿namespace Blatt5A1
 {
-    public class MeinFehler : System.Exception 
+    public class MeinFehler : Exception 
     {
         public int Fehlercode { get; set; }
         public MeinFehler(string message, int fehlercode) : base(message) 
